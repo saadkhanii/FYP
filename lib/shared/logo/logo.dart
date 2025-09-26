@@ -1,5 +1,8 @@
+import 'package:chal_ostaad/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../core/constants/colors.dart';
 
 class AppLogo extends StatelessWidget {
   final double? fontSize;
@@ -10,7 +13,7 @@ class AppLogo extends StatelessWidget {
     super.key,
     this.fontSize,
     this.minWidth = 150,
-    this.maxWidth = 400,
+    this.maxWidth = 360,
   });
 
   @override
@@ -32,20 +35,16 @@ class AppLogo extends StatelessWidget {
                     horizontal: 8,
                     vertical: 4,
                   ),
-                  color: Colors.black,
+                  decoration: BoxDecoration(
+                    color: CColors.secondary,
+                    borderRadius: BorderRadius.circular(CSizes.borderRadiusLg),
+                  ),
                   child: Text(
                     "CHAL",
                     style: GoogleFonts.archivoBlack(
                       fontSize: responsiveFontSize,
-                      color: Colors.white,
+                      color: CColors.primary,
                       height: 1.4,
-                      shadows: [
-                        Shadow(
-                          offset: const Offset(2, 2),
-                          blurRadius: 4,
-                          color: Colors.black.withOpacity(0.5),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -59,7 +58,7 @@ class AppLogo extends StatelessWidget {
                     height: 1.4,
                     shadows: [
                       Shadow(
-                        offset: const Offset(2, 2),
+                        offset: const Offset(3, 3),
                         blurRadius: 4,
                         color: Colors.black.withOpacity(0.5),
                       ),

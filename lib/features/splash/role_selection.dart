@@ -1,3 +1,4 @@
+import 'package:chal_ostaad/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class RoleSelection extends StatelessWidget {
@@ -6,7 +7,7 @@ class RoleSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFF9800),
+      backgroundColor: CColors.primary,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

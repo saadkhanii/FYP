@@ -1,6 +1,8 @@
-import 'package:chal_ostaad/features/splash/role_selection.dart';
 import 'package:chal_ostaad/shared/logo/logo.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants/colors.dart';
+import '../../core/routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,18 +15,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const RoleSelection()),
-      );
+    Future.delayed(const Duration(seconds: 1), () {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacementNamed(context, AppRoutes.role);
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFFFF9800),
+      backgroundColor: CColors.primary,
       body: Center(child: AppLogo()),
     );
   }
