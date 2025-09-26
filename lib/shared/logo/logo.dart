@@ -1,8 +1,8 @@
-import 'package:chal_ostaad/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/constants/colors.dart';
+import '../../core/constants/sizes.dart';
 
 class AppLogo extends StatelessWidget {
   final double? fontSize;
@@ -19,7 +19,7 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) {
+      builder: (_, constraints) {
         final responsiveFontSize =
             fontSize ?? (constraints.maxWidth * 0.12).clamp(20, 60);
 
@@ -31,10 +31,7 @@ class AppLogo extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: CColors.secondary,
                     borderRadius: BorderRadius.circular(CSizes.borderRadiusLg),
@@ -44,18 +41,17 @@ class AppLogo extends StatelessWidget {
                     style: GoogleFonts.archivoBlack(
                       fontSize: responsiveFontSize,
                       color: CColors.primary,
-                      height: 1.4,
+                      height: 1.2,
                     ),
                   ),
                 ),
-                const SizedBox(width: 6),
-                // OSTAAD
+                const SizedBox(width: CSizes.sm),
                 Text(
                   "OSTAAD",
                   style: GoogleFonts.archivoBlack(
                     fontSize: responsiveFontSize,
-                    color: Colors.white,
-                    height: 1.4,
+                    color: CColors.white,
+                    height: 1.2,
                     shadows: [
                       Shadow(
                         offset: const Offset(3, 3),

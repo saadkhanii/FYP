@@ -1,124 +1,84 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../theme/text_theme.dart';
 
 class CAppTheme {
   CAppTheme._(); // private constructor
 
-  // Brand Colors
-  static const Color brandOrange = Color(0xFFFB9824);
-  static const Color brandBlack = Color(0xFF2B2B2B);
-
-  // Light Theme
-  static ThemeData lightTheme = ThemeData(
+  /// Light Theme
+  static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: brandOrange,
-    scaffoldBackgroundColor: Colors.white,
-    colorScheme: ColorScheme.light(
-      primary: brandOrange,
-      secondary: brandBlack,
-      background: Colors.white,
-      surface: Colors.white,
+    primaryColor: CColors.primary,
+    scaffoldBackgroundColor: CColors.light,
+    colorScheme: const ColorScheme.light(
+      primary: CColors.primary,
+      secondary: CColors.secondary,
+      background: CColors.light,
+      surface: CColors.light,
     ),
-    textTheme: TextTheme(
-      headlineLarge: GoogleFonts.archivoBlack(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-        color: brandBlack,
-      ),
-      headlineMedium: GoogleFonts.audiowide(
-        fontSize: 24,
-        fontWeight: FontWeight.w500,
-        color: brandBlack,
-      ),
-      bodyLarge: GoogleFonts.inter(
-        fontSize: 16,
-        color: brandBlack,
-      ),
-      bodyMedium: GoogleFonts.inter(
-        fontSize: 14,
-        color: Colors.black87,
-      ),
-      labelLarge: GoogleFonts.inter(
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-        color: Colors.white,
-      ),
+    textTheme: CTextTheme.lightTheme,
+    elevatedButtonTheme: _elevatedButtonTheme(
+      background: CColors.secondary,
+      foreground: CColors.light,
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: brandBlack,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: brandBlack, width: 2),
-      ),
+    inputDecorationTheme: _inputDecorationTheme(
+      focusedColor: CColors.secondary,
     ),
   );
 
-  // Dark Theme
-  static ThemeData darkTheme = ThemeData(
+  /// Dark Theme
+  static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    primaryColor: brandOrange,
-    scaffoldBackgroundColor: brandBlack,
-    colorScheme: ColorScheme.dark(
-      primary: brandOrange,
-      secondary: Colors.white,
-      background: brandBlack,
-      surface: brandBlack,
+    primaryColor: CColors.primary,
+    scaffoldBackgroundColor: CColors.secondary,
+    colorScheme: const ColorScheme.dark(
+      primary: CColors.primary,
+      secondary: CColors.light,
+      background: CColors.secondary,
+      surface: CColors.secondary,
     ),
-    textTheme: TextTheme(
-      headlineLarge: GoogleFonts.archivoBlack(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
-      headlineMedium: GoogleFonts.audiowide(
-        fontSize: 24,
-        fontWeight: FontWeight.w500,
-        color: Colors.white,
-      ),
-      bodyLarge: GoogleFonts.inter(
-        fontSize: 16,
-        color: Colors.white,
-      ),
-      bodyMedium: GoogleFonts.inter(
-        fontSize: 14,
-        color: Colors.white70,
-      ),
-      labelLarge: GoogleFonts.inter(
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-        color: brandBlack,
-      ),
+    textTheme: CTextTheme.darkTheme,
+    elevatedButtonTheme: _elevatedButtonTheme(
+      background: CColors.primary,
+      foreground: CColors.secondary,
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: brandOrange,
-        foregroundColor: brandBlack,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: brandOrange, width: 2),
-      ),
+    inputDecorationTheme: _inputDecorationTheme(
+      focusedColor: CColors.primary,
     ),
   );
+
+  /// Common ElevatedButtonTheme
+  static ElevatedButtonThemeData _elevatedButtonTheme({
+    required Color background,
+    required Color foreground,
+  }) {
+    return ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: background,
+        foregroundColor: foreground,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(CSizes.buttonRadius),
+        ),
+      ),
+    );
+  }
+
+  /// Common InputDecorationTheme
+  static InputDecorationTheme _inputDecorationTheme({
+    required Color focusedColor,
+  }) {
+    return InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(CSizes.inputFieldRadius),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(CSizes.inputFieldRadius),
+        borderSide: BorderSide(color: focusedColor, width: 2),
+      ),
+    );
+  }
 }

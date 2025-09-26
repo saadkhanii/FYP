@@ -1,8 +1,8 @@
-import 'package:chal_ostaad/shared/logo/logo.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/constants/colors.dart';
 import '../../core/routes/app_routes.dart';
+import '../../shared/logo/logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,9 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 1), () {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
         Navigator.pushReplacementNamed(context, AppRoutes.role);
-      });
+      }
     });
   }
 

@@ -1,5 +1,7 @@
-import 'package:chal_ostaad/core/constants/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants/colors.dart';
+import '../../shared/widgets/button.dart';
 
 class RoleSelection extends StatelessWidget {
   const RoleSelection({super.key});
@@ -10,7 +12,7 @@ class RoleSelection extends StatelessWidget {
       backgroundColor: CColors.primary,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -25,79 +27,53 @@ class RoleSelection extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Tagline
-              const Text(
+              Text(
                 "Your trusted partner for\nfinding work and workers",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 40),
 
-              // "Need help with work?"
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Need help with work?",
-                  style: TextStyle(fontSize: 14, color: Colors.black87),
-                ),
-              ),
-              const SizedBox(height: 8),
-
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
+              // Client Role
+              _roleSection(
+                context,
+                label: "Need help with work?",
+                button: CButton(
+                  text: "Find Worker",
                   onPressed: () {
                     // Navigate to Client flow
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                  child: const Text(
-                    "Find Worker",
-                    style: TextStyle(color: Colors.white),
-                  ),
                 ),
               ),
               const SizedBox(height: 20),
 
-              // "Looking for work?"
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Looking for work?",
-                  style: TextStyle(fontSize: 14, color: Colors.black87),
-                ),
-              ),
-              const SizedBox(height: 8),
-
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
+              // Worker Role
+              _roleSection(
+                context,
+                label: "Looking for work?",
+                button: CButton(
+                  text: "Find Work",
                   onPressed: () {
                     // Navigate to Worker flow
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                  child: const Text(
-                    "Find Work",
-                    style: TextStyle(color: Colors.white),
-                  ),
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _roleSection(BuildContext context,
+      {required String label, required Widget button}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: Theme.of(context).textTheme.titleMedium),
+        const SizedBox(height: 8),
+        SizedBox(width: double.infinity, child: button),
+      ],
     );
   }
 }
