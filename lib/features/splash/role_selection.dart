@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/colors.dart';
-import '../../shared/widgets/button.dart';
+import '../../shared/widgets/Cbutton.dart';
 
 class RoleSelection extends StatelessWidget {
   const RoleSelection({super.key});
@@ -41,7 +41,7 @@ class RoleSelection extends StatelessWidget {
                 button: CButton(
                   text: "Find Worker",
                   onPressed: () {
-                    // Navigate to Client flow
+                    Navigator.pushNamed(context, '/login');
                   },
                 ),
               ),
@@ -54,7 +54,7 @@ class RoleSelection extends StatelessWidget {
                 button: CButton(
                   text: "Find Work",
                   onPressed: () {
-                    // Navigate to Worker flow
+                    Navigator.pushNamed(context, '/login');
                   },
                 ),
               ),
@@ -65,8 +65,11 @@ class RoleSelection extends StatelessWidget {
     );
   }
 
-  Widget _roleSection(BuildContext context,
-      {required String label, required Widget button}) {
+  Widget _roleSection(
+    BuildContext context, {
+    required String label,
+    required Widget button,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

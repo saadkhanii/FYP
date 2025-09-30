@@ -1,3 +1,4 @@
+import 'package:chal_ostaad/features/auth/screens/login.dart';
 import 'package:chal_ostaad/features/splash/role_selection.dart';
 import 'package:chal_ostaad/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case AppRoutes.role:
         return MaterialPageRoute(builder: (_) => const RoleSelection());
-      // case AppRoutes.signup:
-      //   return MaterialPageRoute(builder: (_) => const SignupPage());
+      case AppRoutes.login:
+        return MaterialPageRoute(builder: (_) => const Login());
       // case AppRoutes.home:
       //   return MaterialPageRoute(builder: (_) => const HomePage());
       // case AppRoutes.profile:
