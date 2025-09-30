@@ -7,11 +7,17 @@ class CSizes {
   static const double md = 20;
   static const double lg = 40;
   static const double xl = 32;
+  static const double xxl = 60;
 
   // Icons
   static const double iconSm = 16;
   static const double iconMd = 24;
   static const double iconLg = 32;
+
+  // Custom_Container
+  static const double C_HeightL = 210;
+  static const double C_HeightS = 170;
+
 
   // Font sizes
   static const double fontSizeSm = 14;
@@ -40,8 +46,8 @@ class CSizes {
   static const double spaceBtwInputFields = 16;
 
   // Border radius
-  static const double borderRadiusSm = 4;
-  static const double borderRadiusMd = 8;
+  static const double borderRadiusSm = 8;
+  static const double borderRadiusMd = 10;
   static const double borderRadiusLg = 12;
   static const double cardRadiusLg = 16;
   static const double cardRadiusMd = 12;

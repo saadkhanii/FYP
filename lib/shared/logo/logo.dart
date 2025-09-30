@@ -34,7 +34,7 @@ class AppLogo extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: CColors.secondary,
-                    borderRadius: BorderRadius.circular(CSizes.borderRadiusLg),
+                    borderRadius: BorderRadius.circular(CSizes.borderRadiusMd),
                   ),
                   child: Text(
                     "CHAL",
